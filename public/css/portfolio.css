@@ -1,0 +1,40 @@
+body {
+  background-color: var(--portfolio-bg) !important;
+}
+
+.portfolio-section {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+img {
+  border-radius: .375rem;
+
+}
+
+.main-content .row {
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-content {
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+}
+
+.portfolio-content:hover .portfolio-btn {
+  padding: 45.2% 0;
+}
+
+@media screen and (max-width: 992px) {
+  .main-content {
+    left: 100px;
+    right: 100px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-content {
+    left: 50px;
+    right: 50px;
+  }
+}

@@ -1,0 +1,206 @@
+.resume-container {
+    display: grid;
+    grid-template-columns: 12fr;
+}
+
+.resume-right a,
+p {
+    margin-bottom: 0.4rem !important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.resume-section a {
+    color: var(--resume-text-color);
+    transition: 100ms;
+
+}
+
+.resume-section a:hover {
+    color: var(--button-color);
+    text-decoration: underline !important;
+}
+
+.resume-section p {
+    color: var(--text-color) !important;
+}
+
+.resume-content h4 {
+    margin-top: 1.5rem !important;
+    padding-bottom: .2rem;
+}
+
+.resume-content {
+    padding-right: 2rem;
+}
+
+/* .right {
+    margin-left: 17rem;
+} */
+
+.resume-top {
+    /* background: var(--bg-color); */
+    width: 100%;
+    height: 13rem !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-top h2 {
+    margin-top: 0 !important;
+    padding: 0;
+    color: var(--text-content-color);
+}
+
+.resume-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10rem;
+}
+
+.resume {
+    width: 60rem;
+    padding: 3rem;
+    background: var(--bg-color);
+    box-shadow: 0px 0px 18px var(--resume-box-shadow);
+}
+
+.resume .contact-details a {
+    color: var(--resume-text-color);
+}
+
+.resume .contact-details a:hover {
+    color: var(--button-color);
+    text-decoration: underline !important;
+}
+
+.resume h1 {
+    color: var(--button-color) !important;
+    font-size: 33px !important;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.resume .name h5 {
+    color: var(--resume-text-color);
+    font-weight: 300;
+}
+
+.resume-section .text-border {
+    border-left: 1px solid var(--resume-border-color);
+}
+
+.resume .contact-details i {
+    padding-right: .2rem;
+}
+
+.contact-details p:last-child {
+    margin-bottom: 0;
+}
+
+.resume .summarise {
+    border-top: 1px solid var(--resume-border-color);
+    border-bottom: 1px solid var(--resume-border-color);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.resume .right-info {
+    border-left: 1px solid var(--resume-border-color);
+    padding-left: 1rem;
+}
+
+.resume h3 {
+    border-left: 5px solid var(--button-color);
+    line-height: 22px;
+    padding-left: .5rem;
+    font-size: 20px;
+    color: var(--button-color) !important;
+    letter-spacing: 2px;
+    font-family: "Baloo Paaji 2", sans-serif;
+}
+
+.resume h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-content-color);
+}
+
+.resume h6 {
+    font-size: 18px;
+}
+
+.tecnical-skills {
+    border-bottom: 1px solid var(--resume-border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: .8rem;
+}
+
+.tecnical-skills ul li {
+    font-size: 14px;
+    color: var(--resume-text-color);
+    margin-bottom: .4rem;
+}
+
+.resume-social-link p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-social-link a {
+    padding: .5rem 1rem;
+    color: var(--resume-text-color);
+}
+
+.resume-social-link a i {
+    margin-right: .2rem;
+    font-size: 18px;
+    transition: all .2s ease;
+}
+
+.resume-social-link a:hover i {
+    color: var(--button-color);
+}
+
+@media screen and (max-width: 1300px) {
+    .resume {
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .middle {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+    }
+
+    .right {
+        margin-left: 0rem;
+    }
+
+    .resume-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .resume {
+        margin-left: 0;
+        margin-right: 0;
+        width: 90%;
+    }
+
+    .content-one {
+        padding-top: 1rem;
+    }
+
+    .contact-details {
+        margin-bottom: 1.2rem;
+    }
+}
