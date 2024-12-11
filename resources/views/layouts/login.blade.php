@@ -3,11 +3,11 @@
     @include('layouts.sidebar')
     <div class="main-content" id="main_content">
         <div class="py-3 py-md-5">
-
-            <div class="row justify-content-center align-items-center">
+            <div class="row d-flex justify-content-center align-items-center min-vh-100">
                 <div class="col-md-5">
                     <div class="bg-white p-4 p-md-5 rounded shadow-sm">
-                        <form action="#!">
+                        <form action="{{ route('login') }}" method="POST" class="login">
+                            @csrf
                             <div class="row gy-3 gy-md-4 overflow-hidden">
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -53,7 +53,7 @@
 @endsection
 @push('styles')
     <style>
-      input[type="text"], input[type="email"], input[type="password"]{
+        .login input{
             padding: .6rem !important;
         }
         .login-btn{

@@ -56,7 +56,7 @@
               </li>
               <hr>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-comment"></i> LOGIN</a>
+                <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
               </li>
               <hr>
             </ul>
