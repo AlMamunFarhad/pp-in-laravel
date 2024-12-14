@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\admin;
 
 use App\Models\About;
 use Illuminate\Http\Request;
@@ -8,13 +8,11 @@ use App\Http\Controllers\Controller;
 
 class AboutController extends Controller
 {
-
     public function index()
     {
         $abouts = About::all();
-        return view('admin.about', compact('abouts'));
+        return view('admin.abouts.about', compact('abouts'));
     }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +40,7 @@ class AboutController extends Controller
     public function edit($id)
     {
         $about = About::findOrFail($id); // Find the data to edit
-        return view('admin.edit', compact('about'));
+        return view('admin.abouts.edit', compact('about'));
     }
     public function update(Request $request, string $id)
     {

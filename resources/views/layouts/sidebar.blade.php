@@ -59,6 +59,10 @@
                 <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
               </li>
               <hr>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-right-to-bracket"></i> Dashboard</a>
+              </li>
+              <hr>
             </ul>
             <div class="nav-bottom w-100 d-flex justify-content-between align-items-end">
               <div class="dark-mode">
