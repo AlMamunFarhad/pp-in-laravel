@@ -11,12 +11,12 @@
                             <div class="about-content">
                                     <h1>{{ $about_home->name }}</h1>
                                     <h5>{{ $about_home->title }}</h5>
-                                <p class="py-3">{{ $about_home->description }} <a href="{{ route('resume') }}">View resume</a> and <a
+                                <p class="py-3">{{ $about_home->description }} <a href="{{ route('front.resume') }}">View resume</a> and <a
                                             href="{{ route('portfolio.all') }}">View all Projects</a>.
                                     </p>
                                 <div class="d-flex flex-wrap about-btn">
-                                    <a href="./portfolio.html" class="custom-btn">View Portfolio</a>
-                                    <a href="{{ route('resume') }}" class="ms-2 resume-btn">View Resume</a>
+                                    <a href="" class="custom-btn">View Portfolio</a>
+                                    <a href="{{ route('front.resume') }}" class="ms-2 resume-btn">View Resume</a>
                                 </div>
                             </div>
                         </div>

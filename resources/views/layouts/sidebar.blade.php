@@ -43,7 +43,7 @@
               </li>
               <hr>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('resume') }}"><i class="fa-solid fa-code"> </i>RESUME</a>
+                <a class="nav-link" href="{{ route('front.resume') }}"><i class="fa-solid fa-code"> </i>RESUME</a>
               </li>
               <hr>
               <li class="nav-item">

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class ResumeController extends Controller
 {
-    public function resume()
+    public function index()
     {
-        return view('layouts.resume');
+        // return view('layouts.front_resume');
+        return view('layouts.front_resume');
     }
 }

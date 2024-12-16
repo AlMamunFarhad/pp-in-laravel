@@ -53,21 +53,17 @@ class DesignController extends Controller
                 unlink(public_path($update->image));
             }
             
-            $path = public_path() . '/design/';
-            $image = $request->image;
-            $ext = $image->extension(); // Typo fixed
-            $image_name = time() . '.' . $ext;
-            $image->move($path, $image_name);
-
-            $update->update([
-                'name' => $request->name,
-                'title' => $request->title,
-                'description' => $request->description,
-                'image' => '/design/' . $image_name,
-            ]);
-        } else {
-            $image_name = $update->image;
+            $image_name = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('/design/'), $image_name);
+            $update->image = '/design/' . $image_name;
         }
+
+        $update->update([
+            'title' => $request->title,
+            'project' => $request->project,
+            'image' => $update->image ?? $update->image,
+        ]);
+
         return back()->with('success', 'Design project updated successfully.');
     }
 

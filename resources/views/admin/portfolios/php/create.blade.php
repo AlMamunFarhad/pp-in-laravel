@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 @section('adminContent')
+@include('success')
     <div class="row justify-content-center">
-        @include('success')
         <div class="col-xl-5">
             <div class="card p-4">
                 <div class="card-body">

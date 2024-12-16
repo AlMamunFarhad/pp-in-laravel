@@ -33,9 +33,7 @@
                                 <div class="col-12 mt-2">
                                     <label for="description" class="form-label">Description <span
                                             class="text-danger">*</span></label>
-                                    <div class="input-group">
                                         <textarea name="description" id="description" cols="30" rows="6" class="form-control">{{ $about->description }}</textarea>
-                                    </div>
                                     @error('description')
                                         <span class="text-danger mb-0 pb-0">{{ $message }}</span>
                                     @enderror

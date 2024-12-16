@@ -42,7 +42,7 @@ class AboutController extends Controller
         $about = About::findOrFail($id); // Find the data to edit
         return view('admin.abouts.edit', compact('about'));
     }
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',

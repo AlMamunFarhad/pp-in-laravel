@@ -53,34 +53,29 @@ class JavascriptController extends Controller
                 unlink(public_path($update->image));
             }
             
-            $path = public_path() . '/javascript/';
-            $image = $request->image;
-            $ext = $image->extension(); // Typo fixed
-            $image_name = time() . '.' . $ext;
-            $image->move($path, $image_name);
-
-            $update->update([
-                'name' => $request->name,
-                'title' => $request->title,
-                'description' => $request->description,
-                'image' => '/javascript/' . $image_name,
-            ]);
-        } else {
-            $image_name = $update->image;
+            $image_name = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('/javascript/'), $image_name);
+            $update->image = '/javascript/' . $image_name;
         }
+
+        $update->update([
+            'title' => $request->title,
+            'project' => $request->project,
+            'image' => $update->image ?? $update->image,
+        ]);
         return back()->with('success', 'Javascript project updated successfully.');
     }
 
     
     public function destroy(string $id)
     {
-        $php_id = Javascript::findOrFail($id);
-        $image_path = public_path() . $php_id->image;
+        $js_id = Javascript::findOrFail($id);
+        $image_path = public_path() . $js_id->image;
 
         if (file_exists($image_path)) {
             unlink($image_path);
         }
-        $php_id->delete();
+        $js_id->delete();
         return redirect()->route('portfolio.index')->with('danger', 'Javascript project deleted successfully.');
     }
 }

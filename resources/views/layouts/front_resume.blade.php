@@ -6,7 +6,7 @@
             <div class="resume-right">
                 <div class="resume-top text-center">
                     <h2>Online Resume</h2>
-                    <a href="images/cv.pdf" class="custom-btn mb-3" download=""><i class="fa-solid fa-file"></i>
+                    <a href="{{ asset('images/cv.pdf') }}" class="custom-btn mb-3" download=""><i class="fa-solid fa-file"></i>
                         Download PDF
                         Version</a>
                 </div>
@@ -38,7 +38,7 @@
                                 <div class="row d-flex align-items-center">
                                     <div class="col-md-2">
                                         <div class="resume-img d-flex justify-content-center">
-                                            <img src="images/farhad.png" class="img-fluid rounded-pill" width="150"
+                                            <img src="{{ asset('images/farhad.png') }}" class="img-fluid rounded-pill" width="150"
                                                 height="150" alt="">
                                         </div>
                                     </div>

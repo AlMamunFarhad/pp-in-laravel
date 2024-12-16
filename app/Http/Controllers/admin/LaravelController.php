@@ -52,22 +52,17 @@ class LaravelController extends Controller
             if ($update->image && file_exists(public_path($update->image))) {
                 unlink(public_path($update->image));
             }
-            
-            $path = public_path() . '/laravel/';
-            $image = $request->image;
-            $ext = $image->extension(); // Typo fixed
-            $image_name = time() . '.' . $ext;
-            $image->move($path, $image_name);
 
-            $update->update([
-                'name' => $request->name,
-                'title' => $request->title,
-                'description' => $request->description,
-                'image' => '/laravel/' . $image_name,
-            ]);
-        } else {
-            $image_name = $update->image;
+            $image_name = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('/laravel/'), $image_name);
+            $update->image = '/laravel/' . $image_name;
         }
+
+        $update->update([
+            'title' => $request->title,
+            'project' => $request->project,
+            'image' => $update->image ?? $update->image,
+        ]);
         return back()->with('success', 'Laravel project successfully updated.');
     }
 
