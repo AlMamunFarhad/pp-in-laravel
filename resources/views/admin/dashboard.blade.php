@@ -111,9 +111,9 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                            <i class="fa-solid fa-table-cells-large me-2"></i>
-                            <span class="menu-title"> Dashboard</span>
+                        <a class="nav-link" href="{{ route('home') }}" aria-expanded="false">
+                            <i class="fa-solid fa-house me-2"></i>
+                            <span class="menu-title">HOME</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -124,24 +124,16 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('portfolio.index') }}" aria-expanded="false"
-                            aria-controls="charts">
-                            <i class="fa-solid fa-user-tie me-2"></i>
+                            aria-controls="charts">                           
+                            <i class="fa-brands fa-github me-2"></i>
                             <span class="menu-title">PORTFOLIO</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('index.about') }}" aria-expanded="false"
                             aria-controls="form-elements">
-                            <i class="menu-icon mdi mdi-card-text-outline"></i>
+                            <i class="fa-solid fa-user-tie me-2"></i>
                             <span class="menu-title">About</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}" aria-expanded="false"
-                            aria-controls="charts">
-                            <i class="menu-icon mdi mdi-chart-line"></i>
-                            <span class="menu-title">Home</span>
                             <i class="menu-arrow"></i>
                         </a>
                     </li>

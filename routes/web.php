@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\PortfolioEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -14,15 +15,17 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\JavascriptController;
 use App\Http\Controllers\admin\AdminResumeController;
 use App\Http\Controllers\admin\PortfolioController as AdminPortfolioController;
+use App\Http\Controllers\EmailController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+
 Route::get('/frontend/resume', [ResumeController::class, 'index'])->name('front.resume');
 Route::get('/portfolio', [PortfolioController::class, 'portfolio'])->name('portfolio');
 Route::get('/portfolio-all', [PortfolioController::class, 'portfolioAll'])->name('portfolio.all');
-
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loggedIn'])->name('logged.in');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('/email', [ContactController::class, 'sendEmail'])->name('send.email');
 
 
 Route::group(['prefix' => 'admin'], function () {
