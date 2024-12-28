@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <div class=" mb-3 mt-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 ">RESUME</h5>
-                        <a href="{{ route('create.resume') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
+                        <a href="{{ route('resume.create') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
                     </div>
                     <table class="table align-middle mb-0 bg-white">
                         <thead>
@@ -22,9 +22,11 @@
                         <tbody>
                             @foreach ($resumes as $resume)
                                 <tr>
-                                    <td class="d-flex">
+                                    <td class="h-100">
+                                       <div class="d-flex align-items-center justify-content-center">
                                         <img src="{{ asset($resume->image) }}" alt=""
-                                            style="width: 45px; height: 45px" class="rounded-circle " />
+                                        style="width: 45px; height: 45px" class="rounded-circle " />
+                                       </div>
                                     </td>
                                     <td>
                                         <p class="fw-normal mb-1 py-2">{{ $resume->title }}</p>
@@ -37,18 +39,18 @@
                                     </td>
                                     <td class="py-3">
                                         <div class="d-flex">
-                                            <a href="{{ route('edit.resume', $resume->id) }}"
+                                            <a href="{{ route('resume.edit', $resume->id) }}"
                                                 class="btn btn-rounded btn-sm fw-bold shadow-sm"
                                                 data-mdb-ripple-color="dark">
                                                 <i class="bi bi-pencil-fill text-success"></i>
                                             </a>
-                                            <form action="{{ route('destroy.resume', $resume->id) }}" method="POST"
+                                            <form action="{{ route('resume.destroy', $resume->id) }}" method="POST"
                                                 class="ml-3"
                                                 onsubmit="return confirm('Are you sure you want to delete?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-lg me-2"><i
+                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-sm me-2"><i
                                                         class="bi bi-trash ps-1"></i></button>
                                             </form>
                                         </div>

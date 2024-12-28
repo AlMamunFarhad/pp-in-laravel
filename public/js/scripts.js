@@ -34,28 +34,6 @@ if (getTheme === "DARK") {
 } else {
   updateIcon("LIGHT");
 }
-document.addEventListener("DOMContentLoaded", function() {
-  const menuButtons = document.querySelectorAll(".menu-btn");
-  const rows = document.querySelectorAll(".portfolio-section .row");
-
-  menuButtons.forEach(function(button) {
-    button.addEventListener("click", function() {
-      const target = button.getAttribute("data-target");
-
-      menuButtons.forEach(function(btn) {
-        btn.classList.remove("active");
-      });
-      button.classList.add("active");
-      rows.forEach(function(row) {
-        if (row.id === target) {
-          row.classList.add("active");
-        } else {
-          row.classList.remove("active");
-        }
-      });
-    });
-  });
-});
 
 // remove active class from colors
 const changeActiveColorClass = () => {

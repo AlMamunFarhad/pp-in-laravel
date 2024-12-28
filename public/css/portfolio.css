@@ -6,7 +6,9 @@ body {
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
-
+.portfolio-section h1{
+  padding-top: 2rem !important;
+}
 img {
   border-radius: .375rem;
 
@@ -21,7 +23,7 @@ img {
   border-radius: 24px;
 }
 
-.portfolio-content:hover .portfolio-btn {
+.portfolio-content:hover .portfolio {
   padding: 45.2% 0;
 }
 

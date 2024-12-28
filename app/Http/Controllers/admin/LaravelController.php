@@ -9,11 +9,25 @@ use App\Http\Requests\PortfolioRequest;
 
 class LaravelController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
         return view('admin.portfolios.laravel.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(PortfolioRequest $request)
     {
         $request->validated($request->all());
@@ -25,23 +39,39 @@ class LaravelController extends Controller
         Laravel::create([
             'title' => $request->title,
             'project' => $request->project,
+            'github' => $request->github,
             'image' => '/laravel/' . $imageName,
         ]);
 
         return back()->with('success', 'Laravel Project created successfully.');
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(string $id)
     {
         $update = Laravel::findOrFail($id);
         return view('admin.portfolios.laravel.edit', compact('update'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, string $id)
     {
         $request->validate([
             'title' => 'required',
             'project' => 'required',
+            'github' => 'required',
             'image' => 'nullable|image',
         ]);
 
@@ -61,11 +91,15 @@ class LaravelController extends Controller
         $update->update([
             'title' => $request->title,
             'project' => $request->project,
+            'github' => $request->github,
             'image' => $update->image ?? $update->image,
         ]);
         return back()->with('success', 'Laravel project successfully updated.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $id)
     {
         $laravel_id = Laravel::findOrFail($id);

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('project');
+            $table->text('github');
             $table->string('image');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

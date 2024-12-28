@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <div class="card-body">
                     <h4 class="card-title mb-5">Create</h4>
-                    <form action="{{ route('store.laravel') }}" method="POST" class="login" enctype="multipart/form-data">
+                    <form action="{{ route('laravel.store') }}" method="POST" class="login" enctype="multipart/form-data">
                         @csrf
                         <div class="row gy-3 gy-md-4 overflow-hidden">
                             <div class="col-12 mt-2">
@@ -25,6 +25,16 @@
                                     <input type="text" class="form-control" name="project" id="project">
                                 </div>
                                 @error('project')
+                                    <span class="text-danger lh-sm mb-0 pb-0">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label for="github" class="form-label">GitHub Link <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="github" id="github">
+                                </div>
+                                @error('github')
                                     <span class="text-danger lh-sm mb-0 pb-0">{{ $message }}</span>
                                 @enderror
                             </div>

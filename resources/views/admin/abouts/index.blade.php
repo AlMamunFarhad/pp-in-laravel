@@ -38,18 +38,18 @@
                                         </td>
                                         <td class="py-3 px-0">
                                             <div class="d-flex justify-content-end">
-                                                <a href="{{ route('edit.about', $about->id) }}"
+                                                <a href="{{ route('about.edit', $about->id) }}"
                                                     class="btn btn-rounded btn-sm fw-bold shadow-sm">
                                                     <i class="bi bi-pencil-fill text-dark"></i>
                                                 </a>
-                                                <form action="{{ route('destroy.about', $about->id) }}" method="POST"
+                                                <form action="{{ route('about.destroy', $about->id) }}" method="POST"
                                                     class="ml-3"
                                                     onsubmit="return confirm('Are you sure you want to delete?')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
                                                         class="btn btn-danger btn-rounded btn-sm fw-bold shadow-sm me-2"><i
-                                                            class="bi bi-x-square-fill"></i></button>
+                                                        class="bi bi-trash ps-1"></i></button>
                                                 </form>
                                             </div>
                                         </td>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-xl-12 p-0">
             <div class="bg-white p-5 rounded-4 shadow-sm">
-                <form action="{{ route('create.about') }}" method="POST" class="login" enctype="multipart/form-data">
+                <form action="{{ route('about.store') }}" method="POST" class="login" enctype="multipart/form-data">
                     @csrf
                     <div class="row gy-3 gy-md-4 overflow-hidden">
                         <div class="col-12">

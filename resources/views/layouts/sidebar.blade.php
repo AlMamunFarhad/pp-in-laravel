@@ -47,7 +47,7 @@
               </li>
               <hr>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('portfolio') }}"><i class="fa-solid fa-diagram-project"></i>
+                <a class="nav-link" href="{{ route('portfolio.all') }}"><i class="fa-solid fa-diagram-project"></i>
                   PORTFOLIO</a>
               </li>
               <hr>
@@ -57,10 +57,6 @@
               <hr>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
-              </li>
-              <hr>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-right-to-bracket"></i> Dashboard</a>
               </li>
               <hr>
             </ul>

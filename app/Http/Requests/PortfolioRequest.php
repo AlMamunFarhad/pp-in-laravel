@@ -24,6 +24,7 @@ class PortfolioRequest extends FormRequest
         return [
             'title' => 'required',
             'project' => 'required',
+            'github' => 'required',
             'image' => 'required|image',
         ];
     }

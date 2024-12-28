@@ -8,11 +8,26 @@ use App\Http\Controllers\Controller;
 
 class AboutController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $abouts = About::all();
-        return view('admin.abouts.about', compact('abouts'));
+        return view('admin.abouts.index', compact('abouts'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -37,12 +52,27 @@ class AboutController extends Controller
         return back()->with('success', 'Your about created successfully.');
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
         $about = About::findOrFail($id); // Find the data to edit
         return view('admin.abouts.edit', compact('about'));
     }
-    public function update(Request $request, $id)
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
         $request->validate([
             'name' => 'required',
@@ -71,7 +101,6 @@ class AboutController extends Controller
                 'description' => $request->description,
                 'image' => '/about/' . $image_name,
             ]);
-
         } else {
             $image_name = $update->image;
         }
@@ -80,6 +109,9 @@ class AboutController extends Controller
         return back()->with('success', 'About successfully updated.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $id)
     {
         $about_id = About::findOrFail($id);
@@ -89,6 +121,6 @@ class AboutController extends Controller
             unlink($image_path);
         }
         $about_id->delete();
-        return redirect()->route('index.about')->with('danger', 'About successfully deleted.');
+        return redirect()->back()->with('danger', 'About successfully deleted.');
     }
 }

@@ -9,16 +9,26 @@ use App\Http\Requests\ResumeRequest;
 
 class AdminResumeController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $resumes = Resume::all();
         return view('admin.resume.resume', compact('resumes'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
         return view('admin.resume.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(ResumeRequest $request)
     {
         $request->validated($request->all());
@@ -40,15 +50,28 @@ class AdminResumeController extends Controller
              'interests' => $request->interests,
         ]);
         return back()->with('success','Resume created successfully.');
-
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(string $id)
     {
         $edit = Resume::findOrFail($id);
         return view('admin.resume.edit', compact('edit'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -70,13 +93,6 @@ class AdminResumeController extends Controller
             if ($resume->image && file_exists(public_path($resume->image))) {
                 unlink(public_path($resume->image));
             }
-            
-            // $path = public_path() . '/resume/';
-            // $image = $request->image;
-            // $ext = $image->extension(); // Typo fixed
-            // $image_name = time() . '.' . $ext;
-            // $image->move($path, $image_name);
-
             $image_name = time() . '.' . $request->image->extension();
             $request->image->move(public_path('/resume/'), $image_name);
             $resume->image = '/resume/' . $image_name;
@@ -95,6 +111,9 @@ class AdminResumeController extends Controller
         return back()->with('success', 'Resume updated successfully.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $id)
     {
         $resume_id = Resume::findOrFail($id);
@@ -104,8 +123,6 @@ class AdminResumeController extends Controller
             unlink($image_path);
         }
         $resume_id->delete();
-        return redirect()->route('admin.resume')->with('danger', 'Resume deleted successfully.');
+        return redirect()->route('resume.index')->with('danger', 'Resume deleted successfully.');
     }
-
-
 }

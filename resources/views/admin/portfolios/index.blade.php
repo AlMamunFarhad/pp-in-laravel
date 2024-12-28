@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <div class=" mb-3 mt-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 ">LARAVEL</h5>
-                        <a href="{{ route('create.laravel') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
+                        <a href="{{ route('laravel.create') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
                     </div>
                     <table class="table align-middle mb-0 bg-white">
                         <thead>
@@ -38,18 +38,18 @@
                                     </td>
                                     <td class="py-3">
                                         <div class="d-flex">
-                                            <a href="{{ route('edit.laravel', $laravel->id) }}"
+                                            <a href="{{ route('laravel.edit', $laravel->id) }}"
                                                 class="btn btn-rounded btn-sm fw-bold shadow-sm"
                                                 data-mdb-ripple-color="dark">
                                                 <i class="bi bi-pencil-fill text-success"></i>
                                             </a>
-                                            <form action="{{ route('destroy.laravel', $laravel->id) }}" method="POST"
+                                            <form action="{{ route('laravel.destroy', $laravel->id) }}" method="POST"
                                                 class="ml-3"
                                                 onsubmit="return confirm('Are you sure you want to delete?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-lg me-2"><i
+                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-sm me-2"><i
                                                         class="bi bi-trash ps-1"></i></button>
                                             </form>
                                         </div>
@@ -58,6 +58,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $laravels->links() }}
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@
                 <div class="card-body">
                     <div class=" mb-3 mt-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 card-title">PHP</h5>
-                        <a href="{{ route('create.php') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
+                        <a href="{{ route('php.create') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
                     </div>
                     <table class="table align-middle mb-0 bg-white">
                         <thead>
@@ -97,12 +98,12 @@
                                     </td>
                                     <td class="py-3">
                                         <div class="d-flex">
-                                            <a href="{{ route('edit.php', $php->id) }}"
+                                            <a href="{{ route('php.edit', $php->id) }}"
                                                 class="btn btn-rounded btn-sm fw-bold shadow-sm"
                                                 data-mdb-ripple-color="dark">
                                                 <i class="bi bi-pencil-fill text-success"></i>
                                             </a>
-                                            <form action="{{ route('destroy.php', $php->id) }}" method="POST"
+                                            <form action="{{ route('php.destroy', $php->id) }}" method="POST"
                                                 class="ml-3"
                                                 onsubmit="return confirm('Are you sure you want to delete?')">
                                                 @csrf
@@ -117,6 +118,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $phps->links() }}
                 </div>
             </div>
         </div>
@@ -125,7 +127,7 @@
                 <div class="card-body">
                     <div class=" mb-3 mt-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 ">JAVASCRIPT</h5>
-                        <a href="{{ route('create.js') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
+                        <a href="{{ route('js.create') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
                     </div>
                     <table class="table align-middle mb-0 bg-white">
                         <thead>
@@ -156,17 +158,17 @@
                                     </td>
                                     <td class="py-3">
                                         <div class="d-flex">
-                                            <a href="{{ route('edit.js', $js->id) }}"
+                                            <a href="{{ route('js.edit', $js->id) }}"
                                                 class="btn btn-rounded btn-sm fw-bold shadow-sm"
                                                 data-mdb-ripple-color="dark">
                                                 <i class="bi bi-pencil-fill text-success"></i>
                                             </a>
-                                            <form action="{{ route('destroy.js', $js->id) }}" method="POST" class="ml-3"
+                                            <form action="{{ route('js.destroy', $js->id) }}" method="POST" class="ml-3"
                                                 onsubmit="return confirm('Are you sure you want to delete?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-lg me-2"><i
+                                                    class="btn btn-danger rounded-4 btn-sm fw-bold shadow-sm me-2"><i
                                                         class="bi bi-trash ps-1"></i></button>
                                             </form>
                                         </div>
@@ -175,6 +177,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $javascript->links() }}
                 </div>
             </div>
         </div>
@@ -183,7 +186,7 @@
                 <div class="card-body">
                     <div class=" mb-3 mt-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 card-title">DESIGN</h5>
-                        <a href="{{ route('create.design') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
+                        <a href="{{ route('design.create') }}" class="btn bg-white rounded-pill shadow-sm px-4">Create</a>
                     </div>
                     <table class="table align-middle mb-0 bg-white">
                         <thead>
@@ -214,12 +217,12 @@
                                     </td>
                                     <td class="py-3">
                                         <div class="d-flex">
-                                            <a href="{{ route('edit.design', $design->id) }}"
+                                            <a href="{{ route('design.edit', $design->id) }}"
                                                 class="btn btn-rounded btn-sm fw-bold shadow-sm"
                                                 data-mdb-ripple-color="dark">
                                                 <i class="bi bi-pencil-fill text-success"></i>
                                             </a>
-                                            <form action="{{ route('destroy.design', $design->id) }}" method="POST"
+                                            <form action="{{ route('design.destroy', $design->id) }}" method="POST"
                                                 class="ml-3"
                                                 onsubmit="return confirm('Are you sure you want to delete?')">
                                                 @csrf
@@ -234,6 +237,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $designs->links() }}
                 </div>
             </div>
         </div>

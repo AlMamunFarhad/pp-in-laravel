@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
-@include('layouts.sidebar')
+    @include('layouts.sidebar')
+    <div class="main-content" id="main_content">
     <div class="resume-container">
-        <div class="main-content" id="main_content">
             <div class="resume-right">
                 <div class="resume-top text-center">
                     <h2>Online Resume</h2>
@@ -15,8 +15,8 @@
                         <div class="resume">
                             <div class="row">
                                 <div class="col-lg-9 name">
-                                    <h1 class="pt-3">ABDULLAH ALL MAMUN FARHAD</h1>
-                                    <h5 class="pb-3">Full Stack Developer</h5>
+                                    <h1 class="pt-3">{{ $resume->name }}</h1>
+                                    <h5 class="pb-3">{{ $resume->title }}</h5>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="contact-details text-border">
@@ -33,27 +33,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <hr> -->
                             <div class="summarise mb-4">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-md-2">
                                         <div class="resume-img d-flex justify-content-center">
-                                            <img src="{{ asset('images/farhad.png') }}" class="img-fluid rounded-pill" width="150"
+                                            <img src="{{ $resume->image }} " class="img-fluid rounded-pill" width="150"
                                                 height="150" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-10">
-                                        <p>I'm a highly skilled web designer and developer with 4 years of
-                                            experience,
-                                            seeking a challenging position in a dynamic and innovative company.
-                                            My expertise
-                                            includes HTML, CSS, Sass, Bootstrap, Tailwind CSS, JavaScript,
-                                            jQuery, PHP, OOP,
-                                            Laravel, and WordPress. Committed to continuous learning and
-                                            passionate about
-                                            delivering exceptional results, I'm excited about contributing to
-                                            new projects
-                                            and challenges, creating visually stunning and functional websites.
+                                        <p>{!! $resume->summary !!}
                                         </p>
                                     </div>
                                 </div>
@@ -65,72 +54,11 @@
                                         <div class="resume-content">
                                             <div class="work-experinces">
                                                 <h3>WORK EXPERIENCES</h3>
-                                                <h4>Web Developer</h4>
-                                                <p>I have gained extensive experience working as a web developer
-                                                    across
-                                                    various online marketplaces as well as in local markets. I
-                                                    am passionate
-                                                    about my work and eager to contribute my skills to your
-                                                    team. Given the
-                                                    opportunity, I am committed to delivering my best and making
-                                                    a positive
-                                                    impact.</p>
-                                                <ul>
-                                                    <li>Utilized PHP for server-side scripting, database
-                                                        management, and
-                                                        backend development</li>
-                                                    <li>Applied Object-Oriented Programming (OOP) concepts to
-                                                        architect
-                                                        scalable and maintainable codebases.</li>
-                                                    <li>Advanced skills in PHP programming and Laravel
-                                                        framework.</li>
-                                                </ul>
-                                                <h4>Website Maintenance</h4>
-                                                <p class="text-end"> FictoTech Solutions Ltd | 2022 - 2023
-                                                </p>
-                                                <p>At FictoTech Solutions Ltd, I spearheaded website updates,
-                                                    coding, and
-                                                    collaborated on new features. Additionally, I diligently
-                                                    monitored
-                                                    analytics and provided crucial technical support. My
-                                                    contributions
-                                                    significantly enhanced cutting-edge IT solutions and digital
-                                                    transformation services, benefiting businesses in Bangladesh
-                                                    and beyond.
-                                                </p>
-                                                <h4>Web Designer</h4>
-                                                <p class="text-end"> Design Tech Solutions | 2021 -
-                                                    2022
-                                                </p>
-                                                <p>I had the pleasure of working as a web designer at Design
-                                                    Tech Solutions,
-                                                    where I collaborated on various projects. My experience with
-                                                    the company
-                                                    was exceptionally positive and overwhelming.</p>
+                                                <p>{!! $resume->experiences !!}</p>
                                             </div>
                                             <div class="portfoio-project mt-4">
-                                                <h3>PROJECT</h3>
-                                                <h4>OOP|Project</h4>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/oop-project-1">https://github.com/AlMamunFarhad/oop-project-1</a>
-                                                </p>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/php-oop-project-2">https://github.com/AlMamunFarhad/php-oop-project-2</a>
-                                                </p>
-                                                <h4>PHP|Project</h4>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/core-php-cms-1">https://github.com/AlMamunFarhad/core-php-cms-1</a>
-                                                </p>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/core-php-cms-2">https://github.com/AlMamunFarhad/core-php-cms-2</a>
-                                                </p>
-                                                <h4>HTML/CSS/Bootstrap|Project</h4>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/social-media-project">https://github.com/AlMamunFarhad/social-media-project</a>
-                                                </p>
-                                                <p><a
-                                                        href="https://github.com/AlMamunFarhad/html-css-js-project">https://github.com/AlMamunFarhad/html-css-js-project</a>
-                                                </p>
+                                                <h3>PROJECTS</h3>
+                                                {!! $resume->projects !!}
                                             </div>
                                         </div>
                                     </div>
@@ -138,44 +66,16 @@
                                         <div class="resume-right text-break">
                                             <div class="content-one">
                                                 <h3>SKILLS</h3>
-                                                <h4 class="pt-2">Technical</h4>
-                                                <p>HTML/CSS/Sass/Bootstrap/JavaScrip</p>
-                                                <p>PHP/OOP/Laravel/WordPress</p>
-                                                <p>MySQL</p>
-                                                <p>Git/Github</p>
-                                                <p>Object-oriented design</p>
-                                                <p>Design and implement database structures</p>
-                                                <p>Lead and deliver complex websites</p>
+                                                {!! $resume->skills !!}
                                             </div>
-                                            <div class="professional">
-                                                <h4>Professional</h4>
-                                                <p>Effective communication</p>
-                                                <p>Team player</p>
-                                                <p>Strong problem solver</p>
-                                                <p>Good time management</p>
-                                            </div>
+
                                             <div class="education">
-                                                <h3 class="mt-4">EDUCATION</h3>
-                                                <h4>Udemy</h4>
-                                                <P>PHP | OOP | Laravel
-                                                    <br> November 2021 - 2024
-                                                </P>
-                                                <h4>CodersTrust</h4>
-                                                <P>Responsive Web Design
-                                                    <br> September 2022 - March 2023
-                                                </P>
-                                                <h4>Raw Tech Society</h4>
-                                                <P>Basic Web Design <br> January 2021 - September 2021</P>
-                                                <h4>Bachelor of Science in Chemistry</h4>
-                                                <P>Joypurhat Govt. College
-                                                    <br> 2017 - 2021
-                                                </P>
+                                                <h3 class="mt-4">EDUCATIONS</h3>
+                                                {!! $resume->educations !!}
                                             </div>
                                             <div class="interests">
                                                 <h3 class="mt-4">INTERESTS</h3>
-                                                <h4>Udemy</h4>
-                                                <P>Travelling</P>
-                                                <P>Photography</P>
+                                                {!! $resume->interests !!}
                                             </div>
                                         </div>
                                     </div>

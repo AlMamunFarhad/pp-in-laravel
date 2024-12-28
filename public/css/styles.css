@@ -91,7 +91,7 @@ h1 {
 }
 
 section {
-  padding: 2rem 0rem !important;
+  padding: 1.5rem 0rem !important;
 }
 
 /* section */
@@ -428,36 +428,6 @@ aside .bi-brightness-high {
 
 /* ========= About Section End======= */
 /* ============= Portfolio section Start =========*/
-.portfolio-section .menu {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.portfolio-section .menu-btn {
-  background-color: transparent;
-  border: none;
-  border-top: 1px solid transparent;
-  padding: 10px 3px;
-  cursor: pointer;
-  outline: none;
-  margin: 0 1rem;
-  color: var(--text-content-color);
-}
-
-.portfolio-section .menu-btn.active {
-  border-top: 1px solid var(--button-color) !important;
-  color: var(--button-color);
-}
-
-.portfolio-section .change {
-  display: none;
-}
-
-.portfolio-section .change.active {
-  display: flex;
-}
-
 .portfolio-content {
   background-color: var(--card-bg-color);
   padding: 1.5rem 2rem;
@@ -470,7 +440,7 @@ aside .bi-brightness-high {
   box-shadow: 0px 0px 15px var(--portfolio-box-shadow) !important;
 }
 
-.portfolio-content .portfolio-btn {
+.portfolio-content .portfolio {
   color: var(--color-dark);
   width: 100%;
   text-align: center;
@@ -483,19 +453,25 @@ aside .bi-brightness-high {
   bottom: 50%;
   transform: scale(0.3);
   cursor: pointer;
+  font-size: 25px;
 }
 
-.portfolio-content:hover .portfolio-btn {
+.portfolio-content:hover .portfolio {
   background: var(--portfolio-color);
   visibility: visible;
   height: 100%;
-  padding: 39.7% 0;
+  padding: 37.5% 0;
   opacity: 1;
   bottom: 0;
   transform: scale(1);
   border-radius: 24px;
 }
-
+.portfolio-content .portfolio a{
+  color: var(--nav-bg) !important;
+}
+.portfolio-content h1{
+  margin-top: 5rem !important;
+}
 /* ============= Portfolio section End */
 /*======= contact section start =======*/
 .contact-section {

@@ -6,7 +6,7 @@
                 <div class="col-xl-5">
                     @include('success')
                     <div class="bg-light p-4 p-md-5 rounded shadow-sm">
-                        <form action="{{ route('update.about', $about->id) }}" method="POST" class="login"
+                        <form action="{{ route('about.update', $about->id) }}" method="POST" class="login"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

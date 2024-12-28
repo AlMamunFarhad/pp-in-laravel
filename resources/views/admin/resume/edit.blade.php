@@ -6,7 +6,7 @@
             <div class="card py-4 px-1">
                 <div class="card-body">
                     <h4 class="card-title mb-5">Create</h4>
-                    <form action="{{ route('update.resume', $edit->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('resume.update', $edit->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                             <div class="row">
@@ -49,7 +49,6 @@
                                 <div class="col-6 mt-3 ">
                                     <label for="summary" class="form-label">Summary <span
                                             class="text-danger">*</span></label>
-                                            {{-- <div id="example">hello</div> --}}
                                         <textarea name="summary" id="summary" cols="30" rows="5" class="form-control editor">{{ $edit->summary}}</textarea>
                                     @error('summary')
                                         <span class="text-danger mb-0 pb-0">{{ $message }}</span>
@@ -100,7 +99,7 @@
                             </div>
                             <div class="col-12 mt-4 h-100 d-flex justify-content-between align-items-center">
                                 <div class="back">
-                                    <a href="{{ route('admin.resume') }}" style="text-decoration: none">&#8592; Back</a>
+                                    <a href="{{ route('resume.index') }}" style="text-decoration: none">&#8592; Back</a>
                                 </div>
                                 <div class="text-center">
                                     <button class="btn btn-primary text-white btn-lg form-control"
@@ -114,8 +113,4 @@
         </div>
     </div>
 @endsection
-@push('script')
-<script> 
-    var editor = new FroalaEditor('.editor');
-</script>
-@endpush
+
