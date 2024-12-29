@@ -52,13 +52,8 @@ class SkillController extends Controller
 
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
-                // ইউনিক নাম তৈরি করা
                 $imageName = time() . '_' . $image->getClientOriginalName();
-    
-                // public/images ফোল্ডারে সেভ করা
                  $image->move(public_path('skill_img'), $imageName);
-    
-                // পাথ অ্যারে-তে সংরক্ষণ
                 $imagePaths[] = 'skill_img/' .$imageName;
             }
         }
@@ -101,70 +96,50 @@ class SkillController extends Controller
         ]);
     
         $skill = Skill::find($id);
+        $existingImages = $request->input('existing_images', []); 
     
-        // পূর্বের ইমেজ যেগুলো ডিলিট করা হয়নি তা ধরে রাখুন
-        $existingImages = $request->input('existing_images', []); // ফর্ম থেকে বাকি থাকা ইমেজ
+        $allOldImages = json_decode($skill->images, true);
+        $deletedImages = array_diff($allOldImages, $existingImages);
     
-        // ডিলিট হওয়া ইমেজগুলোর তালিকা বের করুন
-        $allOldImages = json_decode($skill->images, true); // ডাটাবেস থেকে আগের ইমেজ
-        $deletedImages = array_diff($allOldImages, $existingImages); // ডিলিট হওয়া ইমেজগুলো খুঁজে বের করা
-    
-        // ডিলিট হওয়া ইমেজ ফোল্ডার থেকে মুছে দিন
         foreach ($deletedImages as $deletedImage) {
             $imagePath = public_path($deletedImage);
             if (file_exists($imagePath)) {
-                unlink($imagePath); // ফাইল মুছে ফেলা
+                unlink($imagePath);
             }
         }
-    
-        // নতুন ইমেজ যোগ করা
         $newImagePaths = [];
         if ($request->hasfile('new_images')) {
             foreach ($request->file('new_images') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
                 $image->move(public_path('skill_img'), $imageName);
-                $newImagePaths[] = 'skill_img/' . $imageName; // নতুন ইমেজ পাথ যোগ করা
+                $newImagePaths[] = 'skill_img/' . $imageName; 
             }
         }
-    
-        // আগের ইমেজ এবং নতুন ইমেজ একত্রিত করা
         $allImages = array_merge($existingImages, $newImagePaths);
-    
-        // ডাটাবেস আপডেট করা
         $skill->update([
             'title' => $request->title,
             'content' => $request->content,
-            'images' => json_encode($allImages), // সব ইমেজ JSON ফরম্যাটে সেভ করা
+            'images' => json_encode($allImages),
         ]);
     
         return back()->with('success', 'Skill updated successfully!');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        // রেকর্ড খুঁজে বের করা
         $skill = Skill::findOrFail($id);
-    
-        // ইমেজের পাথগুলো বের করা (JSON ফরম্যাট ধরে নেওয়া হয়েছে)
         $images = json_decode($skill->images, true);
-    
-        // ফোল্ডার থেকে প্রতিটি ইমেজ ডিলিট করা
         if ($images) {
             foreach ($images as $imagePath) {
                 $fullPath = public_path($imagePath);
                 if (file_exists($fullPath)) {
-                    unlink($fullPath); // ফাইল ডিলিট
+                    unlink($fullPath);
                 }
             }
         }
-    
-        // ডাটাবেস থেকে রেকর্ড ডিলিট করা
         $skill->delete();
-    
-        // সফল রেসপন্স
         return redirect()->back()->with('success', 'Skill and associated images deleted successfully.');
     }
     
